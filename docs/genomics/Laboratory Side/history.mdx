@@ -1,0 +1,40 @@
+---
+sidebar_position: 2
+---
+# History of Genomics
+
+import React from 'react';
+export const Highlight = ({ children, color }) => {
+  const [hover, setHover] = React.useState(false);
+
+  // Simple function to darken the color (works for hex colors)
+  function darken(hex, amount = 30) {
+    let c = hex.replace('#', '');
+    if (c.length === 3) c = c.split('').map(x => x + x).join('');
+    let num = parseInt(c, 16);
+    let r = Math.max(0, (num >> 16) - amount);
+    let g = Math.max(0, ((num >> 8) & 0x00FF) - amount);
+    let b = Math.max(0, (num & 0x0000FF) - amount);
+    return `#${(r << 16 | g << 8 | b).toString(16).padStart(6, '0')}`;
+  }
+
+  return (
+    <button
+      onClick={() => alert(`You clicked the color ${color} with label ${children}`)}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        backgroundColor: hover ? darken(color) : color,
+        borderRadius: '2px',
+        color: '#fff',
+        padding: '0.2rem',
+      }}>
+      {children}
+    </button>
+  );
+};
+
+
+
+<Highlight color="#25c2a0">Docusaurus green</Highlight> and <Highlight color="#1877F2">Facebook blue</Highlight> are my favorite colors.
+
