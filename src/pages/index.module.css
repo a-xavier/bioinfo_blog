@@ -1,11 +1,11 @@
 .welcomeCard {
   background: #f7fbff;
-  border-radius: 18px;
-  box-shadow: 0 2px 16px rgba(30, 90, 180, 0.08);
+  box-shadow: 0 2px 8px rgba(60, 60, 90, 0.08);
   padding: 2.5rem 2rem;
   margin: 2.5rem auto 0 auto;
   max-width: 680px;
-  text-align: center;
+  text-align: left;
+  border: 1px solid #e0e0e0;
 }
 
 .welcomeTitle {
@@ -64,15 +64,22 @@
   margin-bottom: 2rem;
 }
 
+.heroImageBg {
+  background: rgba(255,255,255,0.5);
+  padding: 12px;
+  display: inline-block;
+  border: 1px solid #e0e0e0;
+}
+
+
 .heroImage {
   max-width: 420px;
   width: 100%;
   height: auto;
   object-fit: contain;
-  background: #fff;
+  background: rgba(255,255,255,0.5);
   box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-  border: 4px solid #fff;
-  border-radius: 24px;
+  border: 1px solid #e0e0e0;
 }
 
 .heroTitle {
@@ -125,4 +132,56 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+/* Dark mode overrides */
+[data-theme='dark'] .welcomeCard {
+  background: #18122b;
+  color: #e0e0ff;
+  box-shadow: 0 2px 8px rgba(60,60,90,0.18);
+  border: 1px solid #2d2350;
+}
+[data-theme='dark'] .welcomeTitle {
+  color: #a78bfa;
+}
+[data-theme='dark'] .welcomeBlurb {
+  color: #c4b5fd;
+}
+[data-theme='dark'] .welcomeHighlight {
+  color: #c084fc;
+}
+[data-theme='dark'] .heroBanner {
+  background: #18122b;
+}
+[data-theme='dark'] .heroGradient {
+  background: linear-gradient(120deg, #2a2250 0%, #3c2e67 100%);
+}
+[data-theme='dark'] .heroContent {
+  color: #e0e0ff;
+}
+[data-theme='dark'] .heroImageBg {
+  background: rgba(124,58,237,0.12);
+  border: 1px solid #2d2350;
+}
+[data-theme='dark'] .heroImage {
+  background: rgba(124,58,237,0.12);
+  box-shadow: 0 8px 32px rgba(124,58,237,0.18);
+  border: 1px solid #2d2350;
+}
+[data-theme='dark'] .heroTitle {
+  color: #c4b5fd;
+}
+[data-theme='dark'] .heroHighlight {
+  background: none;
+  color: #c084fc;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  animation: none;
+}
+[data-theme='dark'] .heroSlogan {
+  color: #a78bfa;
+}
+[data-theme='dark'] .heroSubtitle {
+  color: #c4b5fd;
 }

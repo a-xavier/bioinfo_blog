@@ -2,9 +2,8 @@ import type {ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-
-
 import styles from './index.module.css';
+import { CategoryGrid, Category } from '../components/CategoryVignette';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -13,7 +12,7 @@ function HomepageHeader() {
       <div className={styles.heroContent}>
         <div className={styles.heroImageWrapper}>
           <img
-            src={require('../../static/img/bioinfo.png').default}
+            src={require('../../static/img/stock_image.png').default}
             alt="Bioinformatics"
             className={styles.heroImage}
           />
@@ -22,13 +21,13 @@ function HomepageHeader() {
           Bioinformatics: <span className={styles.heroHighlight}>from Zero</span>
         </h1>
         <p className={styles.heroSlogan}>
-          The best resource for bioinformatics
+          A resource for bioinformatics and computational biology.
         </p>
         <div className={styles.heroButtons}>
           <Link
             className="button button--primary button--lg"
             to="/start">
-            Get Started 🚀
+            What is it about? ⁉️
           </Link>
           <Link
             className="button button--secondary button--lg"
@@ -41,6 +40,58 @@ function HomepageHeader() {
   );
 }
 
+const categories: Category[] = [
+  {
+    id: 'genomics',
+    name: 'Genomics',
+    description: 'Learn about DNA sequencing, genome assembly, and variant analysis.',
+    imageUrl: "./img/categories/DNA0004.svg",
+    linkUrl: '/genomics/intro',
+  },
+  {
+    id: 'transcriptomics',
+    name: 'Transcriptomics',
+    description: 'Explore RNA sequencing, gene expression analysis, and transcriptome assembly.',
+    imageUrl: "./img/categories/Translation0001.png",
+    linkUrl: '/transcriptomics/intro',
+  },
+  {
+    id: 'proteomics',
+    name: 'Proteomics',
+    description: 'Dive into protein identification, quantification, and functional analysis.',
+    imageUrl: "./img/categories/CeramideSynthase0001.png",
+    linkUrl: '/proteomics/intro',
+  },
+  {
+    id: 'metagenomics',
+    name: 'Metagenomics',
+    description: 'Understand microbial communities through metagenomic sequencing and analysis.',
+    imageUrl: "./img/categories/bacteria.svg",
+    linkUrl: '/metagenomics/intro',
+  },
+  {
+    id: 'linux',
+    name: 'Linux for Bioinformatics',
+    description: 'Get comfortable with Linux commands and tools essential for bioinformatics.',
+    imageUrl: "./img/categories/linux-svgrepo-com_2.svg",
+    linkUrl: '/linux/intro',
+  },
+  {
+    id: 'coding',
+    name: 'Coding for Bioinformatics',
+    description: 'Learn programming skills in Python and R tailored for bioinformatics applications.',
+    imageUrl: "./img/categories/code-xml.svg",
+    linkUrl: '/coding/intro',
+  },
+  {
+    id: 'ressources',
+    name: 'Ressources',
+    description: 'Find useful datasets, tools, and references for your bioinformatics journey.',
+    imageUrl: "./img/categories/package-open.svg",
+    linkUrl: '/ressources/intro',
+  },
+];
+
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -50,14 +101,9 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <div className={styles.welcomeCard}>
-          <h2 className={styles.welcomeTitle}>Welcome to BioBlog</h2>
-          <p className={styles.welcomeBlurb}>
-            BioBlog is your friendly starting point for anyone curious about genomics and bioinformatics.<br />
-            Whether you're a student, researcher, or just passionate about science, you'll find clear guides,<br />
-            practical tutorials, and curated resources to help you begin your journey from scratch.<br />
-            <span className={styles.welcomeHighlight}>Dive in and discover how data and biology come together to shape the future!</span>
-          </p>
+         <h1>Under Construction</h1>
         </div>
+        <CategoryGrid categories={categories} />
       </main>
     </Layout>
   );
