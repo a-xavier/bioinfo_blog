@@ -3,38 +3,37 @@ sidebar_position: 2
 ---
 # History of Genomics
 
-import React from 'react';
-export const Highlight = ({ children, color }) => {
-  const [hover, setHover] = React.useState(false);
+## Before sequencing
+The history of DNA sequencing start with the invention of the [Polymerase Chain Reaction (PCR)](https://en.wikipedia.org/wiki/Polymerase_chain_reaction) in 1983 by Kary Mullis.
+This technique allowed to amplify specific sequences of DNA without having to insert them in plasmids and use bacteria cultures to amplify them.
 
-  // Simple function to darken the color (works for hex colors)
-  function darken(hex, amount = 30) {
-    let c = hex.replace('#', '');
-    if (c.length === 3) c = c.split('').map(x => x + x).join('');
-    let num = parseInt(c, 16);
-    let r = Math.max(0, (num >> 16) - amount);
-    let g = Math.max(0, ((num >> 8) & 0x00FF) - amount);
-    let b = Math.max(0, (num & 0x0000FF) - amount);
-    return `#${(r << 16 | g << 8 | b).toString(16).padStart(6, '0')}`;
-  }
+<div style={{border: '1px solid #e0e0e0', borderRadius: '4px', padding: '8px', margin: '16px 0'}} >
+<img src="/figures/PCR.jpg" alt="PCR" style={{ width: '100%', height: 'auto', border: '1px solid #e0e0e0' }}/>
+**Figure 1: PCR process. a) All steps of PCR. b) Calculation of PCR amplicons per cycle**
+</div>
+Results of the PCR amplifications are ofter visualised using gel electrophoresis, a technique that separate DNA fragments based on their size.
 
-  return (
-    <button
-      onClick={() => alert(`You clicked the color ${color} with label ${children}`)}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{
-        backgroundColor: hover ? darken(color) : color,
-        borderRadius: '2px',
-        color: '#fff',
-        padding: '0.2rem',
-      }}>
-      {children}
-    </button>
-  );
-};
+<div style={{border: '1px solid #e0e0e0', borderRadius: '4px', padding: '8px', margin: '16px 0'}} >
+<img src="/figures/gel.jpg" alt="Gel electrophoresis" style={{ width: '100%', height: 'auto', border: '1px solid #e0e0e0' }}/>
+**Figure 2: Gel electrophoresis. DNA fragments are loaded in wells and migrate through the gel when an electric field is applied. Smaller fragments migrate faster than larger ones. Left and right wells are ladders**
+</div>
 
 
+## Sanger sequencing
+Based on the PCR technique, Frederick Sanger developed the first DNA sequencing method in 1977, known as Sanger sequencing.
+This methods used modified dNTPs that will stop the polymerase when they are incorporated in the DNA strand. Since the modified dNTPs are mixed in with normal dNTPs, they are invorporated randomly, hence generating DNA amplicons of different sizes. 
 
-<Highlight color="#25c2a0">Docusaurus green</Highlight> and <Highlight color="#1877F2">Facebook blue</Highlight> are my favorite colors.
+The original methods uses 4 different reactions for each sequencing experiment, one for each dNTP (ddATP, ddTTP, ddCTP, ddGTP). And the results were read on a gel with 4 different lanes, one for each reaction.
+<div style={{border: '1px solid #e0e0e0', borderRadius: '4px', padding: '8px', margin: '16px 0'}} >
+<img src="/figures/sanger_gel.jpg" alt="Sanger sequencing" style={{ width: '100%', height: 'auto', border: '1px solid #e0e0e0' }}/>
+**Figure 3: Sanger sequencing. The four reactions are loaded in separate lanes and the resulting fragments are separated by size. The sequence is read from the gel.**
+</div>
 
+Nowadays, Sanger sequencing is performed in a single tube with all 4 modified dNTPs mixed in. Each modified dNTP is coupled with a fluorophore of different colour, allowing to identify which dNTP was incorporated at the end of the fragment. The resulting fragments are then separated by size using capillary electrophoresis and a laser is used to excite the fluorophores and detect the sequence.
+Results are then exported as chromatograms, where each peak represents a base in the sequence.
+
+<div style={{border: '1px solid #e0e0e0', borderRadius: '4px', padding: '8px', margin: '16px 0'}} >
+<img src="/figures/trace_sanger.png" alt="Sanger sequencing chromatogram"
+      style={{ width: '100%', height: 'auto', border: '1px solid #e0e0e0' }}/>
+**Figure 4: Sanger sequencing trace. Each peak represents a base in the sequence. The height of the peak represents the intensity of the signal. The quality of the base call is represented by the colour of the peak. Green: A, Red: T, Blue: C, Black: G**
+</div>

@@ -90,6 +90,27 @@ const categories: Category[] = [
     imageUrl: "./img/categories/package-open.svg",
     linkUrl: '/ressources/intro',
   },
+  {
+    id: 'statistics',
+    name: 'Statistics for Bioinformatics',
+    description: 'Understand statistical concepts and methods used in bioinformatics analyses.',
+    imageUrl: "./img/categories/chart-network.svg",
+    linkUrl: '/stats/intro',
+  },
+  {
+    id: 'pipeline',
+    name: 'Pipeline Development',
+    description: 'Learn how to create and manage bioinformatics pipelines for reproducible research.',
+    imageUrl: "./img/categories/workflow.svg",
+    linkUrl: '/pipeline/intro',
+  },
+  {
+    id: 'visualisation',
+    name: 'Data Visualization',
+    description: 'Master techniques for visualizing biological data effectively.',
+    imageUrl: "./img/categories/cell_specigic_circos.png",
+    linkUrl: '/visualisation/intro',
+  }
 ];
 
 export default function Home(): ReactNode {

@@ -68,7 +68,7 @@
   height: 140px;
   object-fit: contain;
   aspect-ratio: 1 / 1;
-  border-radius: 50%;
+  border-radius: 33%;
   box-shadow: 0 2px 8px rgba(60,60,90,0.08);
   border: 1px solid #e0e0e0;
   background: #fff;
@@ -76,7 +76,7 @@
 [data-theme='dark'] .vignetteCircleImage {
   box-shadow: 0 2px 8px rgba(60,60,90,0.18);
   border: 1px solid #2d2350;
-  background: #18122b;
+  background: #c0bebe;
 }
 .cardVignette a {
   display: inline-block;

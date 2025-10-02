@@ -1,5 +1,6 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
+import path from 'path';
 
 const config: Config = {
   title: 'Bioinformatics',
@@ -28,7 +29,10 @@ const config: Config = {
       'classic',
       {
         docs: false, // disable default docs instance (we'll use plugins instead)
-        blog: false, // ✅ disable blog entirely
+        blog: {
+          // You can add options here, or leave it empty for defaults
+         authorsMapPath: "authors.yml",
+        }, 
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -127,6 +131,15 @@ const config: Config = {
         sidebarPath: 'sidebars/sidebarPipeline.ts',
       }
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'statistics',
+        path: 'docs/stats',
+        routeBasePath: 'stats',
+        sidebarPath: 'sidebars/sidebarStats.ts',
+      }
+      ]
   ],
 
   themeConfig: {
@@ -160,8 +173,16 @@ const config: Config = {
           items: [
             {label: 'Linux/Bash', to: '/linux/intro'},
             {label: 'Coding', to: '/coding/intro'},
-            {label: "Visualisation", to: "/visualisation/intro"},
             {label: "Pipeline", to: "/pipeline/intro"}
+          ],
+        },
+        {
+          type: "dropdown",
+          label: "Analysis",
+          position: "left",
+          items: [
+            {label: "Visualisation", to: "/visualisation/intro"},
+            {label: "Statistics", to: "/stats/intro"},
           ],
         },
         {
@@ -171,6 +192,7 @@ const config: Config = {
           position: "left",
           label: "Ressources",
         },
+        {to: 'blog', label: 'Blog', position: 'right'},
         {
           type: 'html',
           position: 'right',
@@ -182,20 +204,19 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'About us',
           items: [
-            {label: 'Genomics Intro', to: '/genomics/intro'},
-            {label: 'Proteomics Intro', to: '/proteomics/intro'},
+            {label: 'Alex', to: '/blog/authors/alex'},
           ],
         },
-        {
-          title: 'Community',
-          items: [
-            {label: 'Stack Overflow', href: 'https://stackoverflow.com/questions/tagged/docusaurus'},
-            {label: 'Discord', href: 'https://discordapp.com/invite/docusaurus'},
-            {label: 'X', href: 'https://x.com/docusaurus'},
-          ],
-        },
+        // {
+        //   title: 'Community',
+        //   items: [
+        //     {label: 'Stack Overflow', href: 'https://stackoverflow.com/questions/tagged/docusaurus'},
+        //     {label: 'Discord', href: 'https://discordapp.com/invite/docusaurus'},
+        //     {label: 'X', href: 'https://x.com/docusaurus'},
+        //   ],
+        // },
         {
           title: 'More',
           items: [

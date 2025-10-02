@@ -1,0 +1,10 @@
+alex:
+  name: Alex
+  url: https://www.newcastle.edu.au/profile/alexandre-xavier
+  image_url: https://i1.rgstatic.net/ii/profile.image/920404629676032-1596452972009_Q128/Alexandre-Xavier-6.jpg
+  title: That's my blog
+  description: I'm a bioinformatician / computational biologist / software developer. I love coding and creating stuff.
+  page: true
+  socials:
+    github: a-xavier
+    bluesky: alexandre-xavier.bsky.social
